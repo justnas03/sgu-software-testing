@@ -1,0 +1,22 @@
+Giải phương trình trùng phương.
+ax^4 + bx^2 + c = 0
+
+Input: a,b,c
+
+Output: songhiem=[-1,0,1,2,3,4]
+
+-1: Vô số nghiệm
+0: Vô nghiệm
+1: 1 nghiệm 
+2: 2 nghiệm
+3: 3 nghiệm
+4: 4 nghiệm
+
+Giao diện:
+1 -6 8 -> Phương trình có bốn nghiệm x1 = 2.0000, x2 = -2.0000, x3 = 1.4142 và x4 = -1.4142
+
+Thiết kế
+
+
+
+

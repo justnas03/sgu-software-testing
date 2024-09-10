@@ -17,3 +17,20 @@
 %%writefile tinhtong.in1
     3 4
 
+
+
+#Viet log
+
+#print = printd
+printd = lambda *argc. **argv:()
+=> Tắt log
+
+print = printd
+#printd = lambda *argc. **argv:()
+=> Mở log
+
+!cat file_input.in1: in input ra
+
+
+Tiểu luận tuần thứ 12 báo cáo
+

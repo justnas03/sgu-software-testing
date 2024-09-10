@@ -33,7 +33,7 @@ def pttrungphuong(a, b, c):
             elif t == 0:
                 print("Phương trình có nghiệm x = 0")
             else:
-                print("Phương trình có hai nghiệm x1 = {:.4f} và x2 = {:.4f}".format(t**0.5, -(t**0.5))) # nghiệm của pt (*) là +-sqrt(t)
+                print("Phương trình có hai nghiệm x1 = {:.4f} và x2 = {:.4f}".format(t**0.5, -(t**0.5))) # nghiệm của pt (x) x1=x2= +-sqrt(t)
         #delta > 0
         else: 
             #thay t vào t1, t2
