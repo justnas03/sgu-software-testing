@@ -18,7 +18,9 @@ def ptb2(a, b, c):
 
 
 def main():
-    ptb2(-1,50,5)
+    s = input()
+    a,b,c = [float(x) for x in s.split(" ")]
+    ptb2(a,b,c)
 
 
 main()

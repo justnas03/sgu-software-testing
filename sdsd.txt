@@ -1,0 +1,19 @@
+!dir :kiểm tra mã nguồn
+
+!echo msg: in ra message 
+
+!type soure.*: in mã nguồn 
+
+!g++ helloword.cpp -o helloword.exe
+
+%%writefile tinhtong.py
+    s = input()
+    a,b = [float (x) for x in s.split(" ")]
+    print(a,b)
+    print(f"Ketqua la {a}, {b}")
+
+!python tinhtong.py < tinhtong.in1
+
+%%writefile tinhtong.in1
+    3 4
+

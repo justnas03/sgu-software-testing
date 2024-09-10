@@ -1,4 +1,20 @@
-from ptb2 import ptb2
+def ptb2(a, b, c):
+    if a == 0:
+        if b == 0:
+            if c == 0:
+                print("Phương trình vô số nghiệm")
+            else:
+                print("Phương trình vô nghiệm")
+        else:
+            print("Phương trình có nghiệm x = {:.4f}".format(-c/b))
+    if a != 0:
+        delta = b**2 - 4*a*c
+        if delta < 0:
+            print("Phương trình vô nghiệm")
+        elif delta == 0:
+            print("Phương trình có nghiệm kép x = {:.4f}".format(-b/(2*a)))
+        else:
+            print("Phương trình có 2 nghiệm phân biệt x1 = {:.4f} và x2 = {:.4f}".format((-b + delta**0.5)/(2*a), (-b - delta**0.5)/(2*a)))
 
 def pttrungphuong(a, b, c):
     if a == 0:
@@ -10,19 +26,20 @@ def pttrungphuong(a, b, c):
         delta = b**2 - 4*a*c
         if delta < 0:
             print("Phương trình vô nghiệm")
-        elif delta == 0:
+        elif delta == 0: 
             t = -b / (2*a)
             if t < 0:
                 print("Phương trình vô nghiệm")
             elif t == 0:
                 print("Phương trình có nghiệm x = 0")
             else:
-                print("Phương trình có hai nghiệm x1 = {:.4f} và x2 = {:.4f}".format(t**0.5, -(t**0.5)))
-        else:
-            #tính nghiệm t1, t2
+                print("Phương trình có hai nghiệm x1 = {:.4f} và x2 = {:.4f}".format(t**0.5, -(t**0.5))) # nghiệm của pt (*) là +-sqrt(t)
+        #delta > 0
+        else: 
+            #thay t vào t1, t2
             t1 = (-b + delta**0.5) / (2*a)
             t2 = (-b - delta**0.5) / (2*a)
-            
+
             nghiem = []
             if t1 > 0:
                 nghiem.append(t1**0.5)
@@ -45,7 +62,9 @@ def pttrungphuong(a, b, c):
                 print("Phương trình có bốn nghiệm x1 = {:.4f}, x2 = {:.4f}, x3 = {:.4f} và x4 = {:.4f}".format(nghiem[0], nghiem[1], nghiem[2], nghiem[3]))
 
 def main():
-    pttrungphuong(1, -6, 8)
+    s = input()
+    a,b,c = [float(x) for x in s.split(" ")]
+    pttrungphuong(a, b, c)
 
 if __name__ == "__main__":
     main()
