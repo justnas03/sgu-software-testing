@@ -10,8 +10,11 @@ This repository contains a Python script that solves quadratic equations of the 
   - Special cases (no solution, infinite solutions)
 - Provides solutions with 4 decimal places of precision
 - Accepts input coefficients from the user
+- Supports both command-line input and file input
 
 ## Usage
+
+### Command-line Input
 
 1. Run the `ptb2.py` script:
    ```
@@ -24,6 +27,18 @@ This repository contains a Python script that solves quadratic equations of the 
    ```
 
 3. The program will output the solution(s) to the equation.
+
+### File Input
+
+1. Create a text file with the coefficients (e.g., `input.txt`):
+   ```
+   1 -5 6
+   ```
+
+2. Run the script with the input file:
+   ```
+   python ptb2.py < input.txt
+   ```
 
 ## Input Format
 
@@ -42,8 +57,4 @@ The program will print one of the following:
 
 ## Test Cases
 
-The repository includes several test input files (e.g., `ptb2_test.in1`, `ptb2_test.in4`) that can be used to verify the program's functionality.
-
-## Note
-
-This program is written in Vietnamese. Future updates may include internationalization support.
+The repository includes several test input files (e.g., `ptb2_test.in1`, `ptb2_test.in4`) that can be used to verify the program's functionality. To run a test case:
