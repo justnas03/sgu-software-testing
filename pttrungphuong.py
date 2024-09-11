@@ -1,70 +1,117 @@
-def ptb2(a, b, c):
-    if a == 0:
+
+# printd = print
+printd = lambda *argc,**argv:()
+
+def giaiptb2(a,b,c):
+    import math
+    x1,x2,sn = None, None, None
+    if a == 0: 
         if b == 0:
             if c == 0:
-                print("Phương trình vô số nghiệm")
+                sn = -1
             else:
-                print("Phương trình vô nghiệm")
-        else:
-            print("Phương trình có nghiệm x = {:.4f}".format(-c/b))
-    if a != 0:
-        delta = b**2 - 4*a*c
-        if delta < 0:
-            print("Phương trình vô nghiệm")
-        elif delta == 0:
-            print("Phương trình có nghiệm kép x = {:.4f}".format(-b/(2*a)))
-        else:
-            print("Phương trình có 2 nghiệm phân biệt x1 = {:.4f} và x2 = {:.4f}".format((-b + delta**0.5)/(2*a), (-b - delta**0.5)/(2*a)))
-
-def pttrungphuong(a, b, c):
-    if a == 0:
-        print(f"Do a=0 nên phương trình quy về phương trình bậc 2.\n")
-        ptb2(b, c, 0)
-        return
-    else:
-        # đặt t tính delta
-        delta = b**2 - 4*a*c
-        if delta < 0:
-            print("Phương trình vô nghiệm")
-        elif delta == 0: 
-            t = -b / (2*a)
-            if t < 0:
-                print("Phương trình vô nghiệm")
-            elif t == 0:
-                print("Phương trình có nghiệm x = 0")
-            else:
-                print("Phương trình có hai nghiệm x1 = {:.4f} và x2 = {:.4f}".format(t**0.5, -(t**0.5))) # nghiệm của pt (x) x1=x2= +-sqrt(t)
-        #delta > 0
+                sn = 0
         else: 
-            #thay t vào t1, t2
-            t1 = (-b + delta**0.5) / (2*a)
-            t2 = (-b - delta**0.5) / (2*a)
+            sn = 1
+            x1 = -c/b
+    else: 
+        delta = b**2 - 4*a*c
+        if delta < 0:
+            sn = 0
+        elif delta == 0:
+            sn = 1
+            x1 = -b/2*a
+        elif delta > 0:
+            sn = 2
+            x1 = (-b+math.sqrt(delta))/2*a
+            x2 = (-b-math.sqrt(delta))/2*a
+            if x1 > x2: x1, x2 = x2, x1
+    return x1,x2,sn
 
-            nghiem = []
-            if t1 > 0:
-                nghiem.append(t1**0.5)
-                nghiem.append(-(t1**0.5))
-            elif t1 == 0:
-                nghiem.append(0)
-            if t2 > 0:
-                nghiem.append(t2**0.5)
-                nghiem.append(-(t2**0.5))
-            elif t2 == 0:
-                nghiem.append(0)
 
-            if len(nghiem) == 0:
-                print("Phương trình vô nghiệm")
-            elif len(nghiem) == 1:
-                print("Phương trình có nghiệm x = {:.4f}".format(nghiem[0]))
-            elif len(nghiem) == 2:
-                print("Phương trình có hai nghiệm x1 = {:.4f} và x2 = {:.4f}".format(nghiem[0], nghiem[1]))
-            else:
-                print("Phương trình có bốn nghiệm x1 = {:.4f}, x2 = {:.4f}, x3 = {:.4f} và x4 = {:.4f}".format(nghiem[0], nghiem[1], nghiem[2], nghiem[3]))
+
+def pttp(a,b,c):
+    import math
+    sn,x1,x2,x3,x4 = None, None, None, None, None
+
+
+    t1,t2,snt = giaiptb2(a,b,c)
+    printd(t1,t2,snt)
+
+    if snt == -1:
+        sn = -1
+    elif snt == 0:
+        sn = 0
+    elif snt == 1:
+        if t1 < 0:
+            sn = 0
+        elif t1 == 0:
+            sn = 1
+            x1 = 0
+        elif t1 > 0:
+            sn = 2
+            x1 = -math.sqrt(t1)
+            x2 = math.sqrt(t1)
+    elif snt == 1:
+        if t2 < 0:
+            sn = 0
+        elif t2 == 0:
+            sn = 1
+            x1 = 0
+        elif t2 > 0:
+            sn = 2
+            x1 = -math.sqrt(t2)
+            x2 = math.sqrt(t2)
+    elif snt == 2:
+        if t1 < 0:
+            sn == 2
+            x1 = -math.sqrt(t2)
+            x2 = math.sqrt(t2)
+        elif t2 < 0:
+             sn == 2
+             x1 = -math.sqrt(t1)
+             x2 = math.sqrt(t1)
+    elif snt == 2:
+        if t1 == 0:
+            sn = 3
+            x1 = 0
+            x2 = -math.sqrt(t2)
+            x3 = math.sqrt(t2)
+        elif t2 == 0:
+            sn = 3
+            x1 = 0
+            x2 = -math.sqrt(t1)
+            x3 = math.sqrt(t1)       
+    elif snt == 2:
+        if t1 > 0 and t2 > 0:
+            sn = 4
+            x1 = -math.sqrt(t1)
+            x2 = math.sqrt(t1)
+            x3 = -math.sqrt(t2)
+            x4 = math.sqrt(t2)
+    return sn,x1,x2,x3,x4
 
 def main():
     s = input()
-    a,b,c = [float(x) for x in s.split(" ")]
-    pttrungphuong(a, b, c)
+    printd(s.split(" "))
+    a,b,c = [float(i) for i in s.split(" ") ]
+    printd(a,b,c)
+
+    sn,x1,x2,x3,x4 = pttp(a,b,c)
+    printd(sn, x1,x2,x3,x4)
+
+    if sn == -1:
+        print(f"Phương trình vô số nghiệm")
+    elif sn == 0:
+        print(f"Phương trình vô nghiệm")
+    elif sn == 1:
+        print(f"Phương trình có 1 nghiệm x = {x1}")
+    elif sn == 2:
+        print(f"Phương trình có 2 nghiệm x1 = {x1}; x2 = {x2}")
+    elif sn == 3:
+        print(f"Phương trình có 3 nghiệm x1 = {x1}; x2 = {x2}; x3 = {x3}")
+    elif sn == 4:
+        print(f"Phương trình có 4 nghiệm x1 = {x1}; x2 = {x2}; x3 = {x3}; x4 = {x4}")
 
 if __name__ == "__main__":
     main()
