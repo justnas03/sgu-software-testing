@@ -1,6 +1,6 @@
 
-printd = print
-# printd = lambda *argc,**argv:()
+# printd = print
+printd = lambda *argc,**argv:()
 
 def giaiptb2(a,b,c):
     import math
