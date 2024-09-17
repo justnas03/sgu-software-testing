@@ -41,7 +41,7 @@ def main():
     x1,x2,sn = giaiptb2(a,b,c)
 
     if sn == -1:
-        print(f"Phương trình vô nghiệm")
+        print(f"Phương trình vô số nghiệm")
     elif sn == 0:
         print(f"Phương trình vô nghiệm")
     elif sn == 1:
